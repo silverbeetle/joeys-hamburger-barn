@@ -47,7 +47,11 @@ const Home = () => {
                     className={classes.logo}
                 />
                 {!hasAccessToken && (
-                    <div className={classes.error}>Access token is missing, please refer to the read me for setup instructions.</div>
+                    <div className={classes.error}>
+                        Access token is missing, please refer to the read me for setup instructions.
+                        <br />
+                        Restart the app once you've updated the access token.
+                    </div>
                 )}
                 {hasAccessToken && (
                     <Box display="flex" className={classes.buttons}>

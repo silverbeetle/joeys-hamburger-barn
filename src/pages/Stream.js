@@ -60,6 +60,7 @@ const Stream = () => {
                 <>
                     <p>Your Facebook stream key is below:</p>
                     <TextField type="text" value={streamKey} readOnly variant="filled" className={classes.input} />
+                    <p>Copy the stream key above for use in OBS.</p>
                     <br />
                     <Button variant="contained" onClick={handleEndBroadcast}>
                         End live broadcast
