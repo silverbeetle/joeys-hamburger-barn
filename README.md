@@ -1,10 +1,9 @@
 # StreamShark demo project
 
-## Installation
+## Installation and starting the app
 
 -   Copy .env.development.example and rename to .env.development
 -   Update ACCESS_TOKEN with your access token in the above file
--   Copy .env.example and rename to .env
 -   Run the command `yarn` in your terminal to install dependencies
 -   Run the command `yarn start` in your terminal to start the app, accept any HTTPS security warnings for local development
 
@@ -18,8 +17,11 @@ It would be great to add more features to this but for the purpose of a demo and
 -   Unit testing
 -   Minimize comments on load
 -   Handle super long text breaking responsive view
+-   Typescript
 
-## References
+## References links
+
+Just a few notes for reference while developing this.
 
 #### Getting FB user id
 
@@ -33,10 +35,6 @@ https://developers.facebook.com/docs/live-video-api/getting-started/
 
 You can make a POST request to live_videos edge from the following paths:
 /{user_id}/live_videos
-
-### Real time updating
-
-https://developers.facebook.com/docs/graph-api/webhooks/
 
 ### Profile image
 
