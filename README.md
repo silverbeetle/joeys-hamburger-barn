@@ -20,5 +20,3 @@ The requirements note that orders need to be recorded for review at the end of t
 -   Create a database to store orders
 -   Create an admin interface to allow Joey to add new products/options and update pricing
 -   Design a logo and create proper branding
-
-## References links

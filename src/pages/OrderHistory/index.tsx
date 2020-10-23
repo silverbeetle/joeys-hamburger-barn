@@ -28,13 +28,13 @@ const OrderHistory: React.FC = () => {
             <Heading>Order History</Heading>
             {!hasOrders && <Paper className={classes.paper}>There are no items in this order</Paper>}
             {hasOrders &&
-                orders.map((order) => (
-                    <div className={classes.order}>
+                orders.map((order, i) => (
+                    <div key={`${order.id}_${i}`} className={classes.order}>
                         <p>
                             <strong>Order # {order.id}</strong>
                         </p>
-                        {order.items.map((item) => (
-                            <OrderRow key={item.id} {...item} />
+                        {order.items.map((item, i) => (
+                            <OrderRow key={`${item.id}_${i}`} {...item} />
                         ))}
                         <div className={classes.total}>
                             <strong>Total: {formatCurrency(order.totalPrice)}</strong>

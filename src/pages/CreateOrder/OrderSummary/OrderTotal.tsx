@@ -39,7 +39,7 @@ const OrderTotal: React.FC<OrderTotalProps> = ({ orderTotal, orders }) => {
     const handleAddOrder = () => {
         addOrder(orders);
         clearItems();
-        addFeedback('Order has been placed', 'info');
+        addFeedback('Order has been placed', 'success');
     };
 
     return (
