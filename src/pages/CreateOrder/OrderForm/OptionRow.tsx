@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { makeStyles, Checkbox, Box } from '@material-ui/core';
+import { makeStyles, Checkbox, Box, FormControlLabel } from '@material-ui/core';
 
 import { formatCurrency } from 'utils';
 
@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         alignItems: 'center',
-        // justifyContent: 'center',
         flex: 1,
     },
     price: {
@@ -44,9 +43,15 @@ const OptionRow: React.FC<OptionRow> = ({ id, title, image, price, addOption, re
     return (
         <Box display="flex" className={classes.productRow}>
             <Box display="flex" className={classes.title}>
-                <Checkbox checked={checked} onChange={handleChange} />
-                <img src={imgSrc} alt={title} className={classes.image} />
-                {title}
+                <FormControlLabel
+                    control={<Checkbox checked={checked} onChange={handleChange} />}
+                    label={
+                        <Box display="flex" className={classes.title}>
+                            <img src={imgSrc} alt={title} className={classes.image} />
+                            {title}
+                        </Box>
+                    }
+                />
             </Box>
             <Box display="flex" className={classes.price}>
                 {formatCurrency(price)}

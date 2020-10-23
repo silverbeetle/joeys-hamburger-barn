@@ -42,6 +42,19 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         marginTop: theme.spacing(2),
     },
+    imageContainer: {},
+    formContainer: {
+        [theme.breakpoints.up('md')]: {
+            width: 400,
+            marginLeft: theme.spacing(2),
+        },
+    },
+    flexContainer: {
+        flexDirection: 'column',
+        [theme.breakpoints.up('md')]: {
+            flexDirection: 'row',
+        },
+    },
 }));
 
 const ProductRow: React.FC<Item> = ({ title = '', id, image, price, options = [] }) => {
@@ -109,42 +122,48 @@ const ProductRow: React.FC<Item> = ({ title = '', id, image, price, options = []
     return (
         <div>
             <Typography variant="h4">{title}</Typography>
-            <img src={image} alt={title} className={classes.image} />
-            <div className={classes.quantityContainer}>
-                <IconButton aria-label="delete" onClick={decreaseQuantity}>
-                    <RemoveCircleIcon />
-                </IconButton>
-                <strong>{quantity}</strong>
-                <IconButton aria-label="delete" onClick={increaseQuantity}>
-                    <AddCircleIcon />
-                </IconButton>
-            </div>
-            {hasOptions && (
-                <>
-                    <strong>Options:</strong>
-                    {options.map((option) => (
-                        <OptionRow
-                            key={option.id}
-                            id={option.id}
-                            title={option.title}
-                            image={option.image}
-                            price={option.price}
-                            addOption={addOption}
-                            removeOption={removeOption}
-                        />
-                    ))}
-                </>
-            )}
-            <Divider className={classes.divider} />
-            <Box display="flex">
-                <div className={classes.total}>
-                    <strong>TOTAL:</strong>
+            <Box display="flex" className={classes.flexContainer}>
+                <div>
+                    <img src={image} alt={title} className={classes.image} />
                 </div>
-                <div className={classes.totalPrice}>{formatCurrency(totalPrice)}</div>
+                <div className={classes.formContainer}>
+                    <div className={classes.quantityContainer}>
+                        <IconButton aria-label="delete" onClick={decreaseQuantity}>
+                            <RemoveCircleIcon />
+                        </IconButton>
+                        <strong>Qty {quantity}</strong>
+                        <IconButton aria-label="delete" onClick={increaseQuantity}>
+                            <AddCircleIcon />
+                        </IconButton>
+                    </div>
+                    {hasOptions && (
+                        <>
+                            <strong>Options:</strong>
+                            {options.map((option) => (
+                                <OptionRow
+                                    key={option.id}
+                                    id={option.id}
+                                    title={option.title}
+                                    image={option.image}
+                                    price={option.price}
+                                    addOption={addOption}
+                                    removeOption={removeOption}
+                                />
+                            ))}
+                        </>
+                    )}
+                    <Divider className={classes.divider} />
+                    <Box display="flex">
+                        <div className={classes.total}>
+                            <strong>TOTAL:</strong>
+                        </div>
+                        <div className={classes.totalPrice}>{formatCurrency(totalPrice)}</div>
+                    </Box>
+                    <Button variant="contained" size="large" color="secondary" className={classes.button} onClick={handleOrder}>
+                        Add to order
+                    </Button>
+                </div>
             </Box>
-            <Button variant="contained" size="large" color="secondary" className={classes.button} onClick={handleOrder}>
-                Add to order
-            </Button>
         </div>
     );
 };
