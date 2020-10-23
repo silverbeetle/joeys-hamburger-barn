@@ -26,11 +26,6 @@ const ResponsiveDialog = () => {
             top: theme.spacing(1),
             color: theme.palette.grey[500],
         },
-        dialog: {
-            // '& .MuiDialog-paperFullScreen': {
-            //     maxWidth: dialogProps?.maxWidth || 'lg',
-            // },
-        },
     }));
 
     const classes = useStyles();
@@ -38,7 +33,6 @@ const ResponsiveDialog = () => {
 
     return (
         <Dialog
-            className={classes.dialog}
             fullScreen={fullScreen || Boolean(dialogProps?.fullScreen)}
             open={open}
             onClose={closeDialog}
