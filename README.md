@@ -1,4 +1,4 @@
-# StreamShark demo project
+# OrderMate: Joey's Hamburger Barn demo project
 
 ## Installation and starting the app
 
@@ -7,35 +7,18 @@
 -   Run the command `yarn` in your terminal to install dependencies
 -   Run the command `yarn start` in your terminal to start the app, accept any HTTPS security warnings for local development
 
-## Future enhancements
+## Design considerations
 
-It would be great to add more features to this but for the purpose of a demo and restriction of time the following are not included:
+The product data structure is designed to easily seperate products into sections (ie Mains, Sides, Drinks) as well as provide customisation options (ie add cheese to the hamburger) when applicable.
 
--   Page reactions - substitute names for emoticons
--   Comment reactions styling (same as above)
--   Display video
--   Unit testing
--   Minimize comments on load
--   Handle super long text breaking responsive view
--   Typescript
+As we only have 3 products I've kept the products in the one category but the app is ready to display titles for sections when the data is available.
+
+The requirements note that orders need to be recorded for review at the end of the day, this demo solution is assuming that the data is saved only for the duration of the applications' session - not a database solution.
+
+## Possible future enhancements
+-   Ability to edit/remove an order item
+-   Create a database to store orders
+-   Create an admin interface to allow Joey to add new products/options and update pricing
+-   Design a logo and create proper branding
 
 ## References links
-
-Just a few notes for reference while developing this.
-
-#### Getting FB user id
-
-Using the Graph API Explorer (https://developers.facebook.com/tools/explorer) run the following query:
-
-`me?fields=id,name`
-
-### Creating a live video object
-
-https://developers.facebook.com/docs/live-video-api/getting-started/
-
-You can make a POST request to live_videos edge from the following paths:
-/{user_id}/live_videos
-
-### Profile image
-
-https://developers.facebook.com/docs/graph-api/reference/user/picture/
