@@ -128,11 +128,11 @@ const ProductRow: React.FC<Item> = ({ title = '', id, image, price, options = []
                 </div>
                 <div className={classes.formContainer}>
                     <div className={classes.quantityContainer}>
-                        <IconButton aria-label="delete" onClick={decreaseQuantity}>
+                        <IconButton aria-label="delete" onClick={decreaseQuantity} data-testid="minus">
                             <RemoveCircleIcon />
                         </IconButton>
                         <strong>Qty {quantity}</strong>
-                        <IconButton aria-label="delete" onClick={increaseQuantity}>
+                        <IconButton aria-label="delete" onClick={increaseQuantity} data-testid="plus">
                             <AddCircleIcon />
                         </IconButton>
                     </div>
@@ -159,7 +159,14 @@ const ProductRow: React.FC<Item> = ({ title = '', id, image, price, options = []
                         </div>
                         <div className={classes.totalPrice}>{formatCurrency(totalPrice)}</div>
                     </Box>
-                    <Button variant="contained" size="large" color="secondary" className={classes.button} onClick={handleOrder}>
+                    <Button
+                        variant="contained"
+                        size="large"
+                        color="secondary"
+                        className={classes.button}
+                        onClick={handleOrder}
+                        data-testid="submit"
+                    >
                         Add to order
                     </Button>
                 </div>

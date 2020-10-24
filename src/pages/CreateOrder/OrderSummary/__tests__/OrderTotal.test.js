@@ -1,6 +1,5 @@
 import React from 'react';
 import { screen, render, fireEvent, waitForElementToBeRemoved } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
 
 import OrderTotal from '../OrderTotal';
 import { FeedbackProvider } from 'context/FeedbackContextProvider';
