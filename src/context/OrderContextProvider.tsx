@@ -10,8 +10,13 @@ const defaultContext: OrderType = {
 
 const OrderContext = createContext<OrderType>(defaultContext);
 
-const OrderProvider: React.FC = ({ children }) => {
-    const [orders, setOrders] = useState<OrderItem[]>([]);
+interface OrderProviderProps {
+    initialOrders?: OrderItem[];
+    children: any;
+}
+
+const OrderProvider: React.FC<OrderProviderProps> = ({ children, initialOrders = [] }) => {
+    const [orders, setOrders] = useState<OrderItem[]>(initialOrders);
 
     const defaultValue: OrderType = useMemo(() => {
         const addItem = (item: OrderItem): void => {
